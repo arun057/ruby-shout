@@ -1,6 +1,8 @@
 require 'mkmf'
 
-case 
+case
+when RUBY_VERSION >= '2.1' then $CFLAGS += ' -DRUBY_2_1_x'
+when RUBY_VERSION >= '2.0' then $CFLAGS += ' -DRUBY_2_0_x'
 when RUBY_VERSION >= '1.9' then $CFLAGS += ' -DRUBY_1_9_x'
 when RUBY_VERSION <  '1.9' then $CFLAGS += ' -DRUBY_1_8_x'
 end

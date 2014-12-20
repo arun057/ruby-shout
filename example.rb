@@ -2,10 +2,10 @@
 
 #!/usr/bin/env ruby
 
-# Stream all the files given on the commandline to the Icecast server on localhost. 
-# 
+# Stream all the files given on the commandline to the Icecast server on localhost.
+#
 # Use the mp3 in the test directory:
-# 
+#
 #   ./example.rb spec/test.mp3
 
 BASE_DIR = File.expand_path File.dirname(__FILE__)
@@ -18,7 +18,7 @@ s = Shout.new
 s.mount = "/example"
 # s.charset = "UTF-8"
 # s.mount = "/utf8"
-s.host = "192.168.178.34"
+s.host = "127.0.0.1"
 s.user = "source"
 s.pass = "hackme"
 s.format = Shout::MP3

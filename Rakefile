@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'rake/gempackagetask'
+require 'rubygems/package_task'
 require 'rspec/core/rake_task'
 
 desc "Run spec with documentation output"
@@ -26,7 +26,6 @@ begin
     s.require_paths = ["lib"]
     s.rubyforge_project = 'ruby-shout'
     s.files       = FileList["[A-Z]*", "{ext}/*", "{lib}/**/*"]
-    
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: gem install jeweler"

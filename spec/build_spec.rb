@@ -38,9 +38,9 @@ describe "Build process" do
   end
 
   it "should build" do
-    clean_test_gem.should be_true
-    install_gem.should be_true
-    remove_pkg.should be_true
+    expect(clean_test_gem).not_to be_empty
+    expect(install_gem).not_to be_empty
+    expect(remove_pkg).to be_empty
   end
 
 end

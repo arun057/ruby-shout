@@ -13,7 +13,7 @@ require 'nokogiri'
 require 'open-uri'
 
 CONNECT_DATA = {
-  :host   => "localhost",
+  :host   => "127.0.0.1",
   # :host   => "192.168.178.34",
   :port   => 8000,
   :user   => "source",
@@ -40,9 +40,9 @@ describe "Integration Test" do
     before(:each) do
       @blocksize = 16384
       @filename = File.join(File.dirname(__FILE__), 'test.mp3')
-      
+
       @shout = Shout.new CONNECT_DATA
-      
+
       @meta = ShoutMetadata.new
       @meta.add 'filename', @filename
       @meta.add 'artist', 'gromozek'
@@ -65,7 +65,7 @@ describe "Integration Test" do
             @shout.sync
 
             if mountpoints = get_mountpoints(@shout)
-              mountpoints.should include "Mount Point /test_all"
+              expect(mountpoints).to include "Mount Point /test_all"
               break
             end
           end
@@ -88,7 +88,7 @@ describe "Integration Test" do
             @shout.sync
 
             if mountpoints = get_mountpoints(@shout)
-              mountpoints.should include "Mount Point /test_all_non_blocking"
+              expect(mountpoints).to include "Mount Point /test_all_non_blocking"
               break
             end
           end
